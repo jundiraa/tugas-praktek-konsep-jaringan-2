@@ -1,0 +1,81 @@
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan10
+                   ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#vlan 10
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#exit
+Switch(config)#vlan 10
+Switch(config-vlan)#name HRD
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name Manager
+Switch(config-vlan)#exit
+Switch(config)#vlan 30
+Switch(config-vlan)#name Finance
+Switch(config-vlan)#exit
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan 10-30
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/5
+Switch(config-if)#switcport access vlan 30
+                       ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#exit
+
+.
+.
+.
+.
+.
+
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan10
+                   ^
+% Invalid input detected at '^' marker.
+	
+Switch(config)#vlan 10
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#exit
+Switch(config)#vlan 10
+Switch(config-vlan)#name HRD
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name Manager
+Switch(config-vlan)#exit
+Switch(config)#vlan 30
+Switch(config-vlan)#name Finance
+Switch(config-vlan)#exit
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk allowed vlan 10-30
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/5
+Switch(config-if)#switcport access vlan 30
+                       ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#exit

@@ -1,0 +1,131 @@
+Router>enable
+Router#ls
+Translating "ls"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname Gateway
+Gateway(config)#interface fastEthernet 0/0
+Gateway(config-if)#no shutdown
+
+Gateway(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+Gateway(config-if)#exit
+Gateway(config)#exit
+Gateway#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Gateway#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#interface fastEthernet 0/0.1
+Gateway(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.1, changed state to up
+
+Gateway(config-subif)#no shutdown
+Gateway(config-subif)#ip add
+% Incomplete command.
+Gateway(config-subif)#encapsulation
+% Incomplete command.
+Gateway(config-subif)#no shutdown
+Gateway(config-subif)#?
+  arp            Set arp type (arpa, probe, snap) or timeout
+  bandwidth      Set bandwidth informational parameter
+  delay          Specify interface throughput delay
+  description    Interface specific description
+  encapsulation  Set encapsulation type for an interface
+  exit           Exit from interface configuration mode
+  ip             Interface Internet Protocol config commands
+  ipv6           IPv6 interface subcommands
+  mtu            Set the interface Maximum Transmission Unit (MTU)
+  no             Negate a command or set its defaults
+  shutdown       Shutdown the selected interface
+  standby        HSRP interface configuration commands
+Gateway(config-subif)#ip add
+% Incomplete command.
+Gateway(config-subif)#encapsulation dot1Q
+% Incomplete command.
+Gateway(config-subif)#encapsulation dot1Q 10
+Gateway(config-subif)#ip add
+% Incomplete command.
+Gateway(config-subif)#ip address 192.168.0.1 255.255.255.240
+Gateway(config-subif)#no shutdown
+Gateway(config-subif)#exit
+Gateway(config)#interface fastEthernet 0/0.2
+Gateway(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.2, changed state to up
+
+Gateway(config-subif)#encapsulation dot
+% Incomplete command.
+Gateway(config-subif)#encapsulation dot1Q 20
+Gateway(config-subif)#ip address 192.168.1.1 255.255.255.224
+Gateway(config-subif)#no shutdown
+Gateway(config-subif)#exit
+Gateway(config)#interface fastEthernet 0/0.3
+Gateway(config-subif)#
+%LINK-5-CHANGED: Interface FastEthernet0/0.3, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0.3, changed state to up
+
+Gateway(config-subif)#encapsulation dot
+% Incomplete command.
+Gateway(config-subif)#encapsulation dot1Q 30
+Gateway(config-subif)#ip address 192.168.2.1 255.255.255.255.128
+                                             ^
+% Invalid input detected at '^' marker.
+	
+Gateway(config-subif)#ip add
+% Incomplete command.
+Gateway(config-subif)#ip address 192.168.2.1 255.255.255.128
+Gateway(config-subif)#no shutdown
+Gateway(config-subif)#exit
+Gateway(config)#exit
+
+Gateway#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Gateway(config)#ip dhcp pool vlan
+Gateway(dhcp-config)#ip dhcp pool vlan10
+Gateway(dhcp-config)#?
+  default-router  Default routers
+  dns-server      Set name server
+  domain-name     Domain name
+  exit            Exit from DHCP pool configuration mode
+  network         Network number and mask
+  no              Negate a command or set its defaults
+  option          Raw DHCP options
+Gateway(dhcp-config)#default-router 192.168.0.1
+Gateway(dhcp-config)#network 192.168.0.1 255.255.255.240
+Gateway(dhcp-config)#exit
+Gateway(config)#ip dhcp pool vlan20
+Gateway(dhcp-config)#?
+  default-router  Default routers
+  dns-server      Set name server
+  domain-name     Domain name
+  exit            Exit from DHCP pool configuration mode
+  network         Network number and mask
+  no              Negate a command or set its defaults
+  option          Raw DHCP options
+Gateway(dhcp-config)#default-router 192.168.1.1
+Gateway(dhcp-config)#network 192.168.1.1 255.255.255.224
+Gateway(dhcp-config)#exit
+Gateway(config)#ip dhcp pool vlan
+Gateway(dhcp-config)#?
+  default-router  Default routers
+  dns-server      Set name server
+  domain-name     Domain name
+  exit            Exit from DHCP pool configuration mode
+  network         Network number and mask
+  no              Negate a command or set its defaults
+  option          Raw DHCP options
+Gateway(dhcp-config)#ip dhcp pool vlan30
+Gateway(dhcp-config)#default-router 192.168.2.1
+Gateway(dhcp-config)#network 192.168.2.0 255.255.255.128
+Gateway(dhcp-config)#exit
+Gateway(config)#

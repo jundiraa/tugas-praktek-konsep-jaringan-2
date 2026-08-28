@@ -1,0 +1,79 @@
+Switch>enable
+Switch#ls
+Translating "ls"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+Switch#cofigure terminal
+                ^
+% Invalid input detected at '^' marker.
+	
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Switch_Lt0
+Switch_Lt0(config)#configure terminal
+                    ^
+% Invalid input detected at '^' marker.
+	
+Switch_Lt0(config)#vlan10
+                       ^
+% Invalid input detected at '^' marker.
+	
+Switch_Lt0(config)#vlan 10
+Switch_Lt0(config-vlan)#vlan 20
+Switch_Lt0(config-vlan)#vlan 30
+Switch_Lt0(config-vlan)#exit
+Switch_Lt0(config)#exit
+Switch_Lt0#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch_Lt0#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch_Lt0(config)#vlan 10
+Switch_Lt0(config-vlan)#name HRD
+Switch_Lt0(config-vlan)#exit
+Switch_Lt0(config)#vlan 20
+Switch_Lt0(config-vlan)#name Finannce
+Switch_Lt0(config-vlan)#name Finance
+Switch_Lt0(config-vlan)#exit
+Switch_Lt0(config)#vlan 30
+Switch_Lt0(config-vlan)#name Manager
+Switch_Lt0(config-vlan)#exit
+Switch_Lt0(config)#exit
+Switch_Lt0#
+%SYS-5-CONFIG_I: Configured from console by console
+
+beri nama vlan:
+Switch_Lt0#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch_Lt0(config)#interface fastEthernet 0/1
+Switch_Lt0(config-if)#switchport mode trunk
+Switch_Lt0(config-if)#
+Switch_Lt0(config-if)#switchport tru
+% Incomplete command.
+Switch_Lt0(config-if)#switchport mode trunk
+Switch_Lt0(config-if)#exit
+Switch_Lt0(config)#interface fastEthernet 0/2
+Switch_Lt0(config-if)#switchport mode trunk
+Switch_Lt0(config-if)#switchport trunk allowed vlan 10-30
+Switch_Lt0(config-if)#exit
+Switch_Lt0(config)#interface fastEthernet 0/3
+Switch_Lt0(config-if)#switchport mode access
+Switch_Lt0(config-if)#switcport access vlan 10
+                           ^
+% Invalid input detected at '^' marker.
+	
+Switch_Lt0(config-if)#switchport access vlan 10
+Switch_Lt0(config-if)#exit
+Switch_Lt0(config)#interface fastEthernet 0/4
+Switch_Lt0(config-if)#switchport mode access
+Switch_Lt0(config-if)#switchport access vlan 20
+Switch_Lt0(config-if)#exit
+Switch_Lt0(config)#interface fastEthernet 0/5
+Switch_Lt0(config-if)#switchport mode access
+Switch_Lt0(config-if)#switcport access vlan 30
+                           ^
+% Invalid input detected at '^' marker.
+	
+Switch_Lt0(config-if)#switchport access vlan 30
+Switch_Lt0(config-if)#exit
+Switch_Lt0(config)#

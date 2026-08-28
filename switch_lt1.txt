@@ -1,0 +1,34 @@
+Switch>enable
+Switch#ls
+Translating "ls"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Switch_Lt1
+Switch_Lt1(config)#interface fastEthernet 0/1
+Switch_Lt1(config-if)#switchport mode trunk
+Switch_Lt1(config-if)#switchport trunk allowed vlan 10-30
+Switch_Lt1(config-if)#exit
+Switch_Lt1(config)#interface Ethernet 0/2
+%Invalid interface type and number
+Switch_Lt1(config)#interface fastEthernet 0/2
+Switch_Lt1(config-if)#switchport mode trunk
+Switch_Lt1(config-if)#switchport trunk allowed vlan 10-30
+Switch_Lt1(config-if)#exit
+Switch_Lt1(config)#interface fastEthernet 0/3
+Switch_Lt1(config-if)#switchport mode access
+Switch_Lt1(config-if)#switchport access vlan 10
+% Access VLAN does not exist. Creating vlan 10
+Switch_Lt1(config-if)#exit
+Switch_Lt1(config)#interface fastEthernet 0/4
+Switch_Lt1(config-if)#switchport mode access
+Switch_Lt1(config-if)#switchport access vlan 20
+% Access VLAN does not exist. Creating vlan 20
+Switch_Lt1(config-if)#exit
+Switch_Lt1(config)#interface fastEthernet 0/5
+Switch_Lt1(config-if)#switchport mode access
+Switch_Lt1(config-if)#switchport access vlan 30
+% Access VLAN does not exist. Creating vlan 30
+Switch_Lt1(config-if)#exit
+Switch_Lt1(config)#

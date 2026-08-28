@@ -1,0 +1,42 @@
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#vlan 30
+Switch(config-vlan)#exit
+Switch(config)#interface fastEthernet 0/3
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchort trunk allowed vlan 10-30
+                        ^
+% Invalid input detected at '^' marker.
+	
+Switch(config-if)#switchport trunk allowed vlan 10-30
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#%SPANTREE-2-RECV_PVID_ERR: Received 802.1Q BPDU on non trunk FastEthernet0/1 VLAN1.
+
+%SPANTREE-2-BLOCK_PVID_LOCAL: Blocking FastEthernet0/1 on VLAN0001. Inconsistent port type.
+
+
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+Switch(config)#interface fastEther
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (10), with Switch_Lt1 FastEthernet0/2 (1).
+% Incomplete command.
+Switch(config)#interface fastEthernet 0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchpo
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (10), with Switch_Lt1 FastEthernet0/2 (1).
+% Incomplete command.
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#interface fastEthernet 0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 30
+Switch(config-if)#
+%CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/1 (10), with Switch_Lt1 FastEthernet0/2 (1).
+
+Switch(config-if)#exit
+Switch(config)#
